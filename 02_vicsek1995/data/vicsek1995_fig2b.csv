@@ -1,0 +1,22 @@
+# Digitized from Vicsek et al. (1995), Fig. 2b (arXiv cond-mat/0611743, read at 150 dpi):
+# order parameter v_a versus density rho at noise eta = 2.0 in a box of size L = 20.
+# Uncertainty about +-0.01 in v_a and +-0.05 in rho.
+rho,va
+0.16,0.13
+0.39,0.14
+0.58,0.15
+0.78,0.17
+0.99,0.19
+1.21,0.21
+1.38,0.28
+1.58,0.31
+1.79,0.39
+1.98,0.42
+2.18,0.45
+2.59,0.47
+2.78,0.50
+3.17,0.53
+4.77,0.64
+6.38,0.715
+7.98,0.737
+9.60,0.744

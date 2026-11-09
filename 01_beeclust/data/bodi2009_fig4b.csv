@@ -1,0 +1,30 @@
+# Digitized from Bodi et al. (2009), MATHMOD 2009, Fig. 4B (read at 300 dpi):
+# sensor value e of a robot along the arena's long axis, y = 0. x in patches.
+x_patches,sensor_value
+-24,117.6
+-22,127
+-20,136
+-18,152
+-17,172
+-15,180
+-13,180
+-11,168
+-9.25,145
+-7,127.6
+-5,115.7
+-3,103.8
+0,92.9
+2,85.7
+4,76.7
+6,63.3
+7,51.4
+9,31.4
+10,19.5
+12,0
+14,0
+16,0
+18,19
+19,29
+20,38
+22,51
+24,62.9

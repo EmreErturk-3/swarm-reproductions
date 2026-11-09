@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!--
+  Light-finder experiment of Bodi et al. (2009) with Kilobots.
+  Template filled in by scripts/run_experiments.py; fields in braces.
+-->
+<argos-configuration>
+
+  <framework>
+    <system threads="0" />
+    <experiment length="{length_s}" ticks_per_second="31" random_seed="{seed}" />
+  </framework>
+
+  <controllers>
+    <kilobot_controller id="beeclust">
+      <actuators>
+        <differential_steering implementation="default" />
+        <kilobot_led implementation="default" />
+        <kilobot_communication implementation="default" />
+      </actuators>
+      <sensors>
+        <!-- No kilobot_light sensor: the loop functions provide the illuminance. -->
+        <kilobot_communication implementation="default" medium="kilocomm" />
+      </sensors>
+      <params behavior="{behavior}" />
+    </kilobot_controller>
+  </controllers>
+
+  <loop_functions library="{loop_functions}"
+                  label="beeclust_loop_functions"
+                  output="{output}"
+                  medium="kilocomm"
+                  patch_size="{patch}" />
+
+  <!--
+    Interior of 48 x 27 patches (Bodi et al. 2009, Fig. 4A) of {patch} m,
+    enclosed by four walls. Geometry computed by scripts/run_experiments.py.
+  -->
+  <arena size="{arena_x}, {arena_y}, 0.1" center="0, 0, 0.05">
+    <floor id="floor" source="loop_functions" pixels_per_meter="100" />
+    <box id="wall_north" size="{wall_length_x}, {wall}, 0.05" movable="false">
+      <body position="0, {wall_y}, 0" orientation="0, 0, 0" />
+    </box>
+    <box id="wall_south" size="{wall_length_x}, {wall}, 0.05" movable="false">
+      <body position="0, -{wall_y}, 0" orientation="0, 0, 0" />
+    </box>
+    <box id="wall_east" size="{wall}, {wall_length_y}, 0.05" movable="false">
+      <body position="{wall_x}, 0, 0" orientation="0, 0, 0" />
+    </box>
+    <box id="wall_west" size="{wall}, {wall_length_y}, 0.05" movable="false">
+      <body position="-{wall_x}, 0, 0" orientation="0, 0, 0" />
+    </box>
+    <distribute>
+      <position method="uniform" min="-{spawn_x}, -{spawn_y}, 0" max="{spawn_x}, {spawn_y}, 0" />
+      <orientation method="uniform" min="0, 0, 0" max="360, 0, 0" />
+      <entity quantity="{robots}" max_trials="1000">
+        <kilobot id="kb">
+          <controller config="beeclust" />
+        </kilobot>
+      </entity>
+    </distribute>
+  </arena>
+
+  <physics_engines>
+    <dynamics2d id="dyn2d" />
+  </physics_engines>
+
+  <media>
+    <kilobot_communication id="kilocomm" />
+  </media>
+
+  {visualization}
+
+</argos-configuration>

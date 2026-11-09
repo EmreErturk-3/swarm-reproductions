@@ -1,0 +1,18 @@
+# Digitized from Bodi et al. (2009), MATHMOD 2009, light finders only (N_S = 0).
+# fa_*: fraction of robots waiting in the target zone over the last minute, Fig. 5
+#       (median and quartiles of 6 runs; read at 300 dpi, uncertainty about +-0.02).
+# ta50_s: time until 50% of the robots aggregated in the target zone, Fig. 7, N_S = 0
+#         (empty where not reported; 240 = not reached within the 240 s run).
+robots,fa_median,fa_q1,fa_q3,ta50_s
+2,0.16,0.00,0.37,240
+3,0.21,0.17,0.49,240
+6,0.63,0.60,0.68,25
+9,0.80,0.76,0.84,20
+12,0.75,0.65,0.80,
+18,0.75,0.73,0.78,25
+24,0.72,0.67,0.73,
+33,0.65,0.63,0.70,30
+42,0.64,0.62,0.66,
+60,0.49,0.48,0.50,
+100,0.33,0.32,0.34,
+120,0.28,0.27,0.29,
